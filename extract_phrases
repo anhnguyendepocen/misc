@@ -1,0 +1,5 @@
+library(rvest)
+library(stringr)
+pg2=html("C:/Users/Usuario/Downloads/The Little Book of Talent.xhtml") %>%
+  html_nodes("div.bm-text") %>% html_text() %>% str_trim()
+writeLines(pg2,"C:/Users/Usuario/Downloads/The Little Book of Talent.txt")
