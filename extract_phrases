@@ -1,5 +1,9 @@
+##How to use: Rscript extract_phrases.R Principles.html Principles.txt
+
+args <- commandArgs(trailingOnly = TRUE)
+
 library(rvest)
 library(stringr)
-pg2=html("C:/Users/Usuario/Downloads/The Little Book of Talent.xhtml") %>%
+pg2=html(args[1]) %>%
   html_nodes("div.bm-text") %>% html_text() %>% str_trim()
-writeLines(pg2,"C:/Users/Usuario/Downloads/The Little Book of Talent.txt")
+writeLines(pg2,args[2])
